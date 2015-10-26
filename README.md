@@ -34,4 +34,4 @@ The circuit is pretty simple, it just uses N-MOSFETS (I use 2N7000 ones) to sink
                    GND
 (created by AACircuit v1.28.6 beta 04/19/05 www.tech-chat.de)
 
-I additionally put a speaker on pin 8 (with an appropriately sized resistor to limit the current to something below 20mA) so that a status change can also be heard without looking a the lights.
+I additionally put a speaker on pin 8 (with an appropriately sized resistor to limit the current to something below 20mA) so that a status change can also be heard without looking at the lights.
