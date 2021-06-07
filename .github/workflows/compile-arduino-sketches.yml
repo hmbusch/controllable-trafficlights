@@ -1,0 +1,23 @@
+name: Compile Arduino Sketches
+
+# The workflow will run on every push and pull request to the repository
+on:
+  - push
+  - pull_request
+
+jobs:
+  compile-sketch:
+    runs-on: ubuntu-latest
+
+    steps:
+      # This step makes the contents of the repository available to the workflow
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # For more information: https://github.com/arduino/compile-sketches#readme
+      - name: Compile sketch
+        uses: arduino/compile-sketches@v1
+        with:
+          sketch-paths: |
+            - trafficlight-sketch
+          libraries: |
