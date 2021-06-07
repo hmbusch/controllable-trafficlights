@@ -33,8 +33,7 @@ public class ConnectException extends Exception {
     }
 
     /**
-     * Creates a new instance with a message detailing the problem, the name of the port that failed to open and a
-     * cause
+     * Creates a new instance with a message detailing the problem, the name of the port that failed to open and a cause
      * for this exception.
      *
      * @param message

@@ -169,7 +169,7 @@ public class TrafficLightsCmd {
         if (showHelp) {
             final StringWriter usageWriter = new StringWriter();
             parser.printUsage(usageWriter, null);
-            log.info("Usage: TrafficLightsCmd <arguments>" + System.lineSeparator() + usageWriter.toString());
+            log.info("Usage: TrafficLightsCmd <arguments>" + System.lineSeparator() + usageWriter);
             System.exit(0);
         }
     }

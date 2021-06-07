@@ -12,14 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Handles all the serial communication with the Arduino. This class opens a serial port with a baud rate of 57600, 8
  * databits, 1 stopbit and no flow control. The code tries to suppress the activation of the DTR line. Raising the DTR
  * signals causes most Arduinos to reset which is not desirably as it means the traffic lights will go dark with each
- * color change. Suppressing the DTR line does not work an all system (for me it worked on Windows but not on Linux).
- * If your Arduino keeps resetting, please refer to the <a href="http://playground.arduino.cc/Main/DisablingAutoResetOnSerialConnection">measures
+ * color change. Suppressing the DTR line does not work an all system (for me it worked on Windows but not on Linux). If
+ * your Arduino keeps resetting, please refer to the <a href="http://playground.arduino.cc/Main/DisablingAutoResetOnSerialConnection">measures
  * listed in the Arduino playground</a>.
  *
  * @author Hendrik Busch
@@ -58,8 +57,7 @@ public class TrafficLights implements SerialPortEventListener {
             port.writeBytes(color.getCommandCode().getBytes());
             Thread.sleep(2000);
             port.closePort();
-        }
-        catch (final ConnectException | SerialPortException | InterruptedException e) {
+        } catch (final ConnectException | SerialPortException | InterruptedException e) {
             log.error(e.getMessage());
         }
     }
@@ -82,10 +80,9 @@ public class TrafficLights implements SerialPortEventListener {
                     for (final byte b : buf) {
                         rawData.add("" + (int) b);
                     }
-                    log.info("Incoming serial data: {} (raw: {})", msg, rawData.stream().collect(Collectors.joining(", ")));
+                    log.info("Incoming serial data: {} (raw: {})", msg, String.join(", ", rawData));
                 }
-            }
-            catch (final SerialPortException e) {
+            } catch (final SerialPortException e) {
                 log.error("Error reading incoming data: {}", e.getMessage());
             }
         }
@@ -95,7 +92,6 @@ public class TrafficLights implements SerialPortEventListener {
      * Opens and returns the serial port designated by {@link #portName}.
      *
      * @return the opened serial port
-     *
      * @throws ConnectException
      *         if there was a problem opening the port
      */
@@ -117,8 +113,7 @@ public class TrafficLights implements SerialPortEventListener {
                 }
             }
             return port;
-        }
-        catch (InterruptedException | SerialPortException e) {
+        } catch (InterruptedException | SerialPortException e) {
             throw new ConnectException("An error occurred while connecting to " + portName + ": " + e.getMessage(), portName, e);
         }
     }
