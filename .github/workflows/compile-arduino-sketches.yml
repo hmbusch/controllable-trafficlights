@@ -4,10 +4,10 @@ name: Compile Arduino Sketches
 on:
   push:
     paths:
-      - './trafficlights-sketch/**'
+      - 'trafficlights-sketch/**'
   pull_request:
     paths:
-      - './trafficlights-sketch/**'
+      - 'trafficlights-sketch/**'
   workflow_dispatch: 
   
 jobs:
