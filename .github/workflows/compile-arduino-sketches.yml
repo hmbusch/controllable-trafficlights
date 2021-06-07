@@ -8,6 +8,7 @@ on:
   pull_request:
     paths:
       - './trafficlights-sketch/**'
+  workflow_dispatch: 
   
 jobs:
   compile-sketch:
