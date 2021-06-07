@@ -110,7 +110,7 @@ void loop() {
           if (currentByte == 'r') {
             playJingle(notesStateUp);
           }
-          else if (currentByte = 'g'){
+          else if (currentByte == 'g'){
             playJingle(notesStateDown);
           }
           else {
