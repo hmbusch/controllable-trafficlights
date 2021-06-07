@@ -2,9 +2,13 @@ name: Compile Arduino Sketches
 
 # The workflow will run on every push and pull request to the repository
 on:
-  - push
-  - pull_request
-
+  push:
+    paths:
+      - './trafficlights-sketch/**'
+  pull_request:
+    paths:
+      - './trafficlights-sketch/**'
+  
 jobs:
   compile-sketch:
     runs-on: ubuntu-latest
@@ -19,5 +23,5 @@ jobs:
         uses: arduino/compile-sketches@v1
         with:
           sketch-paths: |
-            - trafficlight-sketch
+            - trafficlights-sketch
           libraries: |
