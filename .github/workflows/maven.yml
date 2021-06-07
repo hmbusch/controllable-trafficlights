@@ -3,8 +3,12 @@ name: Java CI with Maven
 on:
   push:
     branches: [ master ]
+    paths:
+      - './trafficlights-cli/**'
   pull_request:
     branches: [ master ]
+    paths:
+      - './trafficlights-cli/**'
 
 jobs:
   build:
