@@ -4,11 +4,11 @@ on:
   push:
     branches: [ master ]
     paths:
-      - './trafficlights-cli/**'
+      - 'trafficlights-cli/**'
   pull_request:
     branches: [ master ]
     paths:
-      - './trafficlights-cli/**'
+      - 'trafficlights-cli/**'
   workflow_dispatch:
 
 jobs:
